@@ -1,0 +1,34 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+select,
+button {
+    padding: 8px 12px;
+    margin: 8px 4px;
+}
+
+.bill-card {
+    margin-top: 24px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.order-row {
+    margin: 8px 0;
+}
+
+.total {
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.pay-button {
+    margin-top: 20px;
+    padding: 10px 18px;
+    font-size: 16px;
+    cursor: pointer;
+}

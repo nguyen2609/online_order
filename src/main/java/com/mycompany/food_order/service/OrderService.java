@@ -3,6 +3,8 @@ package com.mycompany.food_order.service;
 import com.mycompany.food_order.dao.OrderDAO;
 import com.mycompany.food_order.dto.OrderRequest;
 import java.sql.SQLException;
+import com.mycompany.food_order.dto.OrderResponse;
+import java.util.List;
 
 public class OrderService {
 
@@ -41,4 +43,85 @@ public class OrderService {
 
         return orderDAO.create(request);
     }
+    public List<OrderResponse> getAllOrders() throws SQLException {
+    return orderDAO.findAll();
+}
+    public void updateOrderStatus(int orderId, String status)
+        throws SQLException {
+
+    if (orderId <= 0) {
+        throw new IllegalArgumentException(
+                "orderId phải lớn hơn 0."
+        );
+    }
+
+    if (status == null || status.isBlank()) {
+        throw new IllegalArgumentException(
+                "Thiếu status."
+        );
+    }
+
+    String newStatus = status.toUpperCase();
+
+    if (!newStatus.equals("PREPARED")
+            && !newStatus.equals("COMPLETED")) {
+
+        throw new IllegalArgumentException(
+                "Status không hợp lệ."
+        );
+    }
+
+    String currentStatus =
+            orderDAO.findStatusById(orderId);
+
+    if (currentStatus == null) {
+        throw new IllegalArgumentException(
+                "Không tìm thấy order."
+        );
+    }
+
+    boolean validTransition =
+            currentStatus.equals("PREPARED")
+            && newStatus.equals("COMPLETED");
+
+    if (!validTransition) {
+        throw new IllegalArgumentException(
+                "Không thể chuyển trạng thái từ "
+                + currentStatus
+                + " sang "
+                + newStatus
+        );
+    }
+
+    boolean updated =
+            orderDAO.updateStatus(orderId, newStatus);
+
+    if (!updated) {
+        throw new IllegalArgumentException(
+                "Không thể cập nhật order."
+        );
+    }
+}
+    public List<OrderResponse> getOrdersByStatus(String status)
+        throws SQLException {
+
+    if (status == null || status.isBlank()) {
+        throw new IllegalArgumentException(
+                "Thiếu status."
+        );
+    }
+
+    String normalizedStatus = status.toUpperCase();
+
+    if (!normalizedStatus.equals("PREPARED")
+            && !normalizedStatus.equals("COMPLETED")) {
+
+        throw new IllegalArgumentException(
+                "Status không hợp lệ."
+        );
+    }
+
+    return orderDAO.findByStatus(normalizedStatus);
+}
+   
 }

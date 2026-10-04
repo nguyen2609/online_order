@@ -1,0 +1,454 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f3ed;
+    color: #222;
+}
+/* =========================
+   STICKY RESTAURANT HEADER
+========================= */
+
+.restaurant-hero {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 120, 60, 0.35),
+            transparent 40%
+        ),
+        linear-gradient(
+            110deg,
+            #8f0017,
+            #c8102e 55%,
+            #ef4b32
+        );
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.20);
+
+    overflow: hidden;
+}
+
+
+/* pattern chấm nhỏ giống reference */
+
+.restaurant-hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            rgba(255, 255, 255, 0.12) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        22px 22px;
+
+    pointer-events: none;
+}
+
+
+/* phần chứa text */
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+
+    width: 92%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 22px 20px;
+
+    text-align: center;
+}
+
+
+/* tên nhà hàng */
+
+.restaurant-name {
+    margin: 0;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 3px 8px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* slogan */
+
+.restaurant-tagline {
+    margin: 8px 0 0;
+
+    color: #ffd45c;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* mô tả */
+
+.restaurant-description {
+    max-width: 650px;
+
+    margin: 8px auto 0;
+
+    color:
+        rgba(255, 255, 255, 0.92);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.page-container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0 60px;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+}
+
+
+/* =========================
+   MENU GRID
+========================= */
+
+#menu-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+
+/* =========================
+   FOOD CARD
+========================= */
+
+.food-card {
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100%;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================
+   FOOD IMAGE
+========================= */
+
+.food-image {
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================
+   FOOD INFORMATION
+========================= */
+
+.food-content {
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.food-content h3 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+}
+
+
+/* Best seller */
+
+.best-seller {
+    font-size: 13px;
+    font-weight: normal;
+
+    color: #d35400;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.food-price {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 18px;
+
+    color: #d62828;
+}
+
+
+/* =========================
+   QUANTITY + NOTE
+========================= */
+
+.food-order-controls {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 9px 10px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+.add-button {
+    margin-top: auto;
+
+    width: 100%;
+
+    padding: 10px;
+
+    background: white;
+
+    color: #d62828;
+
+    border: 1px solid #d62828;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.add-button:hover {
+    background: #d62828;
+    color: white;
+}
+
+
+/* =========================
+   ORDER / CART SECTION
+========================= */
+
+.order-section {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 70px auto 0;
+
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 14px;
+
+    text-align: center;
+}
+
+.order-section h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   CART
+========================= */
+
+#cart-container {
+    text-align: left;
+
+    margin-bottom: 25px;
+}
+
+.cart-item {
+    padding: 15px 0;
+
+    border-bottom: 1px solid #ddd;
+
+    line-height: 1.6;
+}
+
+.cart-total {
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    text-align: right;
+}
+
+
+/* =========================
+   SUBMIT ORDER
+========================= */
+
+#submit-order {
+    width: 220px;
+
+    padding: 13px 20px;
+
+    background: #d62828;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#submit-order:hover {
+    opacity: 0.85;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    #menu-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    #menu-container {
+        grid-template-columns: 1fr;
+    }
+
+    .food-image {
+        height: 220px;
+    }
+
+    .order-section {
+        padding: 20px;
+    }
+
+    .hero-overlay {
+        padding: 16px 12px;
+    }
+
+    .restaurant-name {
+        font-size: 28px;
+    }
+
+    .restaurant-tagline {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .restaurant-description {
+        font-size: 11px;
+    }
+}
