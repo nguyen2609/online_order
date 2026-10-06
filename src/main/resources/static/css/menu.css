@@ -478,3 +478,22 @@ input:focus-visible {
         font-size: 11px;
     }
 }
+
+/* Smaller restaurant title and header */
+.restaurant-name {
+    font-size: 28px;
+}
+
+.hero-overlay {
+    padding: 16px 20px;
+}
+
+@media (max-width: 600px) {
+    .restaurant-name {
+        font-size: 22px;
+    }
+
+    .hero-overlay {
+        padding: 12px;
+    }
+}

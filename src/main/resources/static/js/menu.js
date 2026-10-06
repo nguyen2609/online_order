@@ -43,7 +43,7 @@ async function loadSession() {
         sessionId = data.sessionId;
 
         document.getElementById("menu-title").textContent =
-            `Online Menu - Bàn ${tableNumber}`;
+            `Menu - Bàn ${tableNumber}`;
 
         return;
     }
@@ -68,7 +68,7 @@ async function loadSession() {
         sessionId = data.sessionId;
 
         document.getElementById("menu-title").textContent =
-            `Online Menu - Bàn ${tableNumber}`;
+            `Menu - Bàn ${tableNumber}`;
 
         return;
     }
@@ -135,23 +135,11 @@ async function loadFoods() {
 
                     <div class="food-order-controls">
                         <div class="input-group">
-                            <label>Số lượng</label>
-
-                            <input
-                                type="number"
-                                id="qty-${food.id}"
-                                value="1"
-                                min="1"
-                            >
-                        </div>
-
-                        <div class="input-group">
-                            <label>Ghi chú</label>
+                            <label for="note-${food.id}">Ghi chú</label>
 
                             <input
                                 type="text"
                                 id="note-${food.id}"
-                                placeholder="Ví dụ: không hành"
                             >
                         </div>
                     </div>
@@ -184,9 +172,7 @@ async function loadFoods() {
 function addToCart(foodId, foodName, foodPrice) {
     if (isSubmitting) return;
 
-    const quantity = Number(
-        document.getElementById(`qty-${foodId}`).value
-    );
+    const quantity = 1;
 
     const note = document.getElementById(`note-${foodId}`).value;
 
