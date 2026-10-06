@@ -8,6 +8,7 @@ body {
     background: #f7f3ed;
     color: #222;
 }
+
 /* =========================
    STICKY RESTAURANT HEADER
 ========================= */
@@ -16,7 +17,6 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     width: 100%;
 
     background:
@@ -32,19 +32,12 @@ body {
             #ef4b32
         );
 
-    box-shadow:
-        0 4px 14px
-        rgba(0, 0, 0, 0.20);
-
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.20);
     overflow: hidden;
 }
 
-
-/* pattern chấm nhỏ giống reference */
-
 .restaurant-hero::before {
     content: "";
-
     position: absolute;
     inset: 0;
 
@@ -54,83 +47,44 @@ body {
             transparent 1px
         );
 
-    background-size:
-        22px 22px;
-
+    background-size: 22px 22px;
     pointer-events: none;
 }
-
-
-/* phần chứa text */
 
 .hero-overlay {
     position: relative;
     z-index: 1;
-
     width: 92%;
     max-width: 1200px;
-
     margin: 0 auto;
-
     padding: 22px 20px;
-
     text-align: center;
 }
 
-
-/* tên nhà hàng */
-
 .restaurant-name {
     margin: 0;
-
     color: white;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 38px;
-
     font-weight: 900;
-
     letter-spacing: 1px;
-
-    text-shadow:
-        0 3px 8px
-        rgba(0, 0, 0, 0.25);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
-
-
-/* slogan */
 
 .restaurant-tagline {
     margin: 8px 0 0;
-
     color: #ffd45c;
-
     font-size: 14px;
-
     font-weight: bold;
-
     letter-spacing: 3px;
-
     text-transform: uppercase;
 }
 
-
-/* mô tả */
-
 .restaurant-description {
     max-width: 650px;
-
     margin: 8px auto 0;
-
-    color:
-        rgba(255, 255, 255, 0.92);
-
+    color: rgba(255, 255, 255, 0.92);
     font-size: 13px;
-
     line-height: 1.5;
 }
 
@@ -140,7 +94,6 @@ body {
     margin: 0 auto;
     padding: 30px 0 60px;
 }
-
 
 /* =========================
    TITLE
@@ -152,20 +105,15 @@ h1 {
     font-size: 32px;
 }
 
-
 /* =========================
    MENU GRID
 ========================= */
 
 #menu-container {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
-
 
 /* =========================
    FOOD CARD
@@ -173,16 +121,11 @@ h1 {
 
 .food-card {
     background: white;
-
     border: 1px solid #ddd;
-
     border-radius: 14px;
-
     overflow: hidden;
-
     display: flex;
     flex-direction: column;
-
     min-height: 100%;
 
     transition:
@@ -192,11 +135,8 @@ h1 {
 
 .food-card:hover {
     transform: translateY(-4px);
-
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
 }
-
 
 /* =========================
    FOOD IMAGE
@@ -205,12 +145,9 @@ h1 {
 .food-image {
     width: 100%;
     height: 230px;
-
     object-fit: cover;
-
     display: block;
 }
-
 
 /* =========================
    FOOD INFORMATION
@@ -218,29 +155,21 @@ h1 {
 
 .food-content {
     padding: 18px;
-
     display: flex;
     flex-direction: column;
-
     flex: 1;
 }
 
 .food-content h3 {
     margin: 0 0 10px;
-
     font-size: 20px;
 }
-
-
-/* Best seller */
 
 .best-seller {
     font-size: 13px;
     font-weight: normal;
-
     color: #d35400;
 }
-
 
 /* =========================
    PRICE
@@ -249,12 +178,9 @@ h1 {
 .food-price {
     font-size: 18px;
     font-weight: bold;
-
     margin-bottom: 18px;
-
     color: #d62828;
 }
-
 
 /* =========================
    QUANTITY + NOTE
@@ -263,16 +189,13 @@ h1 {
 .food-order-controls {
     display: flex;
     flex-direction: column;
-
     gap: 12px;
-
     margin-bottom: 16px;
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-
     gap: 5px;
 }
 
@@ -283,14 +206,10 @@ h1 {
 
 .input-group input {
     width: 100%;
-
     padding: 9px 10px;
-
     border: 1px solid #ccc;
-
     border-radius: 6px;
 }
-
 
 /* =========================
    ADD BUTTON
@@ -298,21 +217,13 @@ h1 {
 
 .add-button {
     margin-top: auto;
-
     width: 100%;
-
     padding: 10px;
-
     background: white;
-
     color: #d62828;
-
     border: 1px solid #d62828;
-
     border-radius: 20px;
-
     cursor: pointer;
-
     font-weight: bold;
 }
 
@@ -321,7 +232,6 @@ h1 {
     color: white;
 }
 
-
 /* =========================
    ORDER / CART SECTION
 ========================= */
@@ -329,17 +239,11 @@ h1 {
 .order-section {
     width: 100%;
     max-width: 650px;
-
     margin: 70px auto 0;
-
     padding: 30px;
-
     background: white;
-
     border: 1px solid #ddd;
-
     border-radius: 14px;
-
     text-align: center;
 }
 
@@ -348,81 +252,203 @@ h1 {
     margin-bottom: 25px;
 }
 
-
 /* =========================
    CART
 ========================= */
 
 #cart-container {
     text-align: left;
-
     margin-bottom: 25px;
 }
 
 .cart-item {
-    padding: 15px 0;
-
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px 16px;
+    padding: 20px 0;
     border-bottom: 1px solid #ddd;
-
     line-height: 1.6;
 }
 
 .cart-total {
-    margin-top: 20px;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 0;
+    border-top: 2px solid #eee3d8;
     font-size: 20px;
-
-    text-align: right;
 }
 
+.order-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.order-heading h2 {
+    margin: 0;
+}
+
+.cart-count {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #fff0ed;
+    color: #a51d27;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.order-help,
+.cart-status {
+    color: #655a53;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.cart-status {
+    min-height: 23px;
+}
+
+.cart-empty {
+    padding: 24px 12px;
+    background: #faf7f2;
+    border-radius: 10px;
+    line-height: 1.7;
+}
+
+.cart-item-name {
+    margin: 0;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.cart-unit-price {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #655a53;
+}
+
+.cart-note {
+    margin: 6px 0 0;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.cart-item-total,
+#cart-total {
+    color: #b3222c;
+}
+
+.cart-item-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.quantity-controls {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #d9d0c7;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.quantity-controls button {
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: #faf7f2;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.cart-quantity {
+    min-width: 44px;
+    padding: 0 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.remove-button {
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #e9bfc0;
+    border-radius: 10px;
+    background: #fff;
+    color: #a51d27;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.remove-button:hover:not(:disabled) {
+    background: #fff0ed;
+    border-color: #a51d27;
+}
+
+.quantity-controls button:hover:not(:disabled) {
+    background: #eee3d8;
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #8f0017;
+    outline-offset: 3px;
+}
+
+.quantity-controls button:focus-visible {
+    outline-offset: -3px;
+}
 
 /* =========================
    SUBMIT ORDER
 ========================= */
 
 #submit-order {
-    width: 220px;
-
+    width: 100%;
     padding: 13px 20px;
-
     background: #d62828;
-
     color: white;
-
     border: none;
-
     border-radius: 25px;
-
     font-size: 16px;
     font-weight: bold;
-
     cursor: pointer;
 }
 
-#submit-order:hover {
+#submit-order:hover:not(:disabled) {
     opacity: 0.85;
 }
-
 
 /* =========================
    TABLET
 ========================= */
 
 @media (max-width: 900px) {
-
     #menu-container {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-
 
 /* =========================
    MOBILE
 ========================= */
 
 @media (max-width: 600px) {
-
     #menu-container {
         grid-template-columns: 1fr;
     }

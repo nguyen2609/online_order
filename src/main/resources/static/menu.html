@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="vi">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -11,29 +8,15 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Mochi's Restaurant
-    </title>
+    <title>Mochi's Restaurant</title>
 
-    <link
-        rel="stylesheet"
-        href="css/menu.css"
-    >
-
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 
-
 <body>
-
-
-    <!-- =========================
-         RESTAURANT HEADER
-    ========================== -->
-
+    <!-- RESTAURANT HEADER -->
     <header class="restaurant-hero">
-
         <div class="hero-overlay">
-
             <h1 class="restaurant-name">
                 Mochi's Restaurant
             </h1>
@@ -46,71 +29,61 @@
                 Trải nghiệm ẩm thực tinh tế với những món ăn
                 được chọn lọc và phục vụ dành riêng cho bạn.
             </p>
-
         </div>
-
     </header>
 
-
-
-    <!-- =========================
-         MAIN MENU
-    ========================== -->
-
+    <!-- MAIN MENU -->
     <main class="page-container">
-
         <h1 id="menu-title">
             Online Menu
         </h1>
 
-
-        <!-- Danh sách món ăn -->
-
         <div id="menu-container">
-
             Đang tải menu...
-
         </div>
 
+        <!-- CART / ORDER -->
+        <section
+            class="order-section"
+            id="your-order"
+            aria-labelledby="order-title"
+        >
+            <div class="order-heading">
+                <h2 id="order-title">
+                    Đơn hàng của bạn
+                </h2>
 
-
-        <!-- =========================
-             CART / ORDER
-        ========================== -->
-
-        <section class="order-section">
-
-            <h2>
-                Đơn hàng của bạn
-            </h2>
-
-
-            <div id="cart-container">
-
-                Chưa chọn món.
-
+                <span id="cart-count" class="cart-count">
+                    0 phần
+                </span>
             </div>
 
+            <p class="order-help">
+                Điều chỉnh số lượng hoặc xóa món trước khi gửi đến bếp.
+            </p>
 
-            <button id="submit-order">
+            <div id="cart-container">
+                Chưa chọn món.
+            </div>
 
+            <div class="cart-total">
+                <span>Tổng cộng</span>
+                <strong id="cart-total">0đ</strong>
+            </div>
+
+            <p
+                id="cart-status"
+                class="cart-status"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+            <button id="submit-order" type="button" disabled>
                 Đặt món
-
             </button>
-
         </section>
-
     </main>
 
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
     <script src="js/menu.js"></script>
-
-
 </body>
-
 </html>
