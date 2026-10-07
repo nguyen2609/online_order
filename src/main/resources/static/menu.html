@@ -2,88 +2,126 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Mochi's Restaurant</title>
 
     <link rel="stylesheet" href="css/menu.css">
+    <script src="js/menu.js" defer></script>
 </head>
 
 <body>
-    <!-- RESTAURANT HEADER -->
-    <header class="restaurant-hero">
-        <div class="hero-overlay">
-            <h1 class="restaurant-name">
-                Mochi's Restaurant
-            </h1>
+    <header class="restaurant-header">
+        <div class="header-inner">
+            <div>
+                <h1>Mochi's Restaurant</h1>
+                <p>Món ngon cho mọi khoảnh khắc</p>
+            </div>
 
-            <p class="restaurant-tagline">
-                Ẩm thực giới thượng lưu
-            </p>
-
-            <p class="restaurant-description">
-                Trải nghiệm ẩm thực tinh tế với những món ăn
-                được chọn lọc và phục vụ dành riêng cho bạn.
-            </p>
+            <span id="table-label" class="table-label">
+                Đang tải bàn…
+            </span>
         </div>
     </header>
 
-    <!-- MAIN MENU -->
     <main class="page-container">
-        <h1 id="menu-title">
-            Menu
-        </h1>
+        <section aria-labelledby="menu-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">THỰC ĐƠN</p>
+                    <h2 id="menu-title">Hôm nay bạn muốn ăn gì?</h2>
+                </div>
 
-        <div id="menu-container">
-            Đang tải menu...
-        </div>
-
-        <!-- CART / ORDER -->
-        <section
-            class="order-section"
-            id="your-order"
-            aria-labelledby="order-title"
-        >
-            <div class="order-heading">
-                <h2 id="order-title">
-                    Đơn hàng của bạn
-                </h2>
-
-                <span id="cart-count" class="cart-count">
-                    0 phần
-                </span>
+                <span id="food-count" class="muted"></span>
             </div>
 
-            <p class="order-help">
-                Điều chỉnh số lượng hoặc xóa món trước khi gửi đến bếp.
+            <label class="search-label" for="food-search">
+                Tìm món
+            </label>
+
+            <input
+                id="food-search"
+                type="search"
+                placeholder="Nhập tên món, ví dụ: cơm gà…"
+                autocomplete="off"
+            >
+
+            <p id="page-status" role="status">
+                Đang tải thực đơn…
             </p>
 
-            <div id="cart-container">
-                Chưa chọn món.
+            <div id="menu-container" class="menu-grid"></div>
+
+            <p id="no-results" class="empty-state" hidden>
+                Không tìm thấy món. Hãy thử tên khác.
+            </p>
+        </section>
+
+        <section
+            id="your-order"
+            class="order-section"
+            aria-labelledby="order-title"
+        >
+            <div class="section-heading">
+                <h2 id="order-title" tabindex="-1">
+                    Giỏ hàng của bạn
+                </h2>
+
+                <span id="cart-count" class="badge">0 phần</span>
             </div>
+
+            <p class="muted">
+                Kiểm tra món và ghi chú trước khi gửi đến bếp.
+            </p>
+
+            <div id="cart-container"></div>
 
             <div class="cart-total">
                 <span>Tổng cộng</span>
                 <strong id="cart-total">0đ</strong>
             </div>
 
+            <button
+                id="submit-order"
+                class="primary-button"
+                type="button"
+                disabled
+            >
+                Đặt món
+            </button>
+
             <p
                 id="cart-status"
-                class="cart-status"
+                class="muted"
                 role="status"
                 aria-live="polite"
             ></p>
-
-            <button id="submit-order" type="button" disabled>
-                Đặt món
-            </button>
         </section>
     </main>
 
-    <script src="js/menu.js"></script>
+    <div id="cart-bar" class="cart-bar" hidden>
+        <div class="cart-bar-inner">
+            <div>
+                <span id="bar-count">0 phần</span>
+                <strong id="bar-total">0đ</strong>
+            </div>
+
+            <button
+                id="view-cart"
+                type="button"
+                class="primary-button"
+            >
+                Xem giỏ hàng
+            </button>
+        </div>
+    </div>
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+        hidden
+    ></div>
 </body>
 </html>
