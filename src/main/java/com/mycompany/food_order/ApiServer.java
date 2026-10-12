@@ -69,6 +69,16 @@ server.createContext(
         System.out.println("API dang chay:");
         System.out.println("http://localhost:8080/api/foods");
         System.out.println("http://localhost:8080/api/orders");
+        
+        System.out.println();
+        System.out.println("Customer Menu:\n" + 
+                            "http://localhost:8080/menu.html?table=1");
+        
+        System.out.println("Kitchen:\n" +
+                            "http://localhost:8080/kitchen.html");
+        
+        System.out.println("Staff:\n" +
+                            "http://localhost:8080/staff.html");
     }
 
     private static void handleFoods(HttpExchange exchange)

@@ -1,23 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Kitchen Orders</title>
+    <title>Nhà bếp</title>
 
     <link rel="stylesheet" href="css/kitchen.css">
+    <script src="js/kitchen.js" defer></script>
 </head>
 
 <body>
+    <header class="page-header">
+        <h1>Đơn hàng nhà bếp</h1>
 
-    <h1>Kitchen Orders</h1>
+        <button id="refresh-button" type="button">
+            Tải lại
+        </button>
+    </header>
 
-    <div id="orders-container">
-        Loading orders...
-    </div>
+    <p id="connection-message" role="status">
+        Đang tải đơn hàng…
+    </p>
 
-    <script src="js/kitchen.js"></script>
+    <p id="action-message" role="status"></p>
 
+    <main
+        id="orders-container"
+        aria-label="Danh sách đơn hàng"
+    ></main>
+    
+        <dialog
+        id="complete-dialog"
+        aria-labelledby="complete-dialog-title"
+        aria-describedby="complete-dialog-message"
+    >
+        <form method="dialog">
+            <h2 id="complete-dialog-title">Complete order?</h2>
+
+            <p id="complete-dialog-message"></p>
+
+            <div class="dialog-actions">
+                <button type="submit" value="cancel" autofocus>
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    value="confirm"
+                    class="confirm-button"
+                >
+                    Complete order
+                </button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>

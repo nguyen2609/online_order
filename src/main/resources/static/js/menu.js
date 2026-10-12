@@ -241,7 +241,7 @@ async function loadFoods() {
         const decrease = button(
             "−",
             "menu-decrease",
-            () => {
+            async () => {
                 if (isSubmitting || !sessionId || !available) {
                     return;
                 }
@@ -253,8 +253,11 @@ async function loadFoods() {
                 }
 
                 if (item.quantity === 1) {
-                    removeFromCart(item.lineId);
-                    focusControl(".add-button");
+                    const removed = await removeFromCart(item.lineId);
+
+                    focusControl(
+                        removed ? ".add-button" : ".menu-decrease"
+                    );
                 } else {
                     changeQuantity(item.lineId, -1);
                     focusControl(".menu-decrease");
@@ -443,29 +446,76 @@ function changeQuantity(lineId, amount) {
     focusTarget.focus();
 }
 
-function removeFromCart(lineId) {
+async function removeFromCart(lineId) {
     if (isSubmitting) {
-        return;
+        return false;
     }
 
+    const item = cart.find(
+        item => item.lineId === lineId
+    );
+
+    if (!item) {
+        return false;
+    }
+
+    const dialog = $("remove-dish-dialog");
+
+    // Prevent opening another confirmation while one is active.
+    if (dialog.open) {
+        return false;
+    }
+
+    const previousFocus = document.activeElement;
+
+    // textContent safely displays the name inside the <strong> element.
+    $("remove-dish-details").textContent =
+        `x${item.quantity} ${item.foodName}`;
+
+    dialog.returnValue = "";
+
+    const confirmed = await new Promise(resolve => {
+        dialog.addEventListener(
+            "close",
+            () => {
+                resolve(dialog.returnValue === "remove");
+            },
+            { once: true }
+        );
+
+        dialog.showModal();
+    });
+
+    // Cancel or Escape leaves the cart unchanged.
+    if (!confirmed || isSubmitting) {
+        if (previousFocus?.isConnected) {
+            previousFocus.focus();
+        }
+
+        return false;
+    }
+
+    // Find the current position after confirmation.
     const index = cart.findIndex(
         item => item.lineId === lineId
     );
 
-    if (index < 0) {
-        return;
+    if (index === -1) {
+        return false;
     }
 
     const [removed] = cart.splice(index, 1);
 
     renderCart();
-    notify(`Đã xóa ${removed.foodName}`);
+    notify(`Removed ${removed.foodName}`);
 
     const focusTarget =
         document.querySelector(".remove-button") ||
         $("order-title");
 
     focusTarget.focus();
+
+    return true;
 }
 
 /* Render cart */
