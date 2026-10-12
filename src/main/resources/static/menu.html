@@ -123,5 +123,39 @@
         aria-live="polite"
         hidden
     ></div>
+    
+    <dialog
+        id="remove-dish-dialog"
+        aria-labelledby="remove-dish-title"
+        aria-describedby="remove-dish-message"
+    >
+        <form method="dialog">
+            <h2 id="remove-dish-title">Remove dish?</h2>
+
+            <p id="remove-dish-message">
+                Are you sure you want to remove
+                <strong id="remove-dish-details"></strong>?
+            </p>
+
+            <div class="remove-dialog-actions">
+                <button
+                    type="submit"
+                    value="cancel"
+                    class="dialog-cancel-button"
+                    autofocus
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    value="remove"
+                    class="primary-button"
+                >
+                    Remove
+                </button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
