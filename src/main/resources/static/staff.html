@@ -2,36 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Staff Billing</title>
 
     <link rel="stylesheet" href="css/staff.css">
+    <script src="js/staff.js" defer></script>
 </head>
 
 <body>
+    <header class="page-header">
+        <h1>Staff Billing</h1>
+    </header>
 
-    <h1>Staff Billing</h1>
+    <main>
+        <form id="table-form" class="table-controls">
+            <label for="table-select">Table</label>
 
-    <label for="table-select">Chọn bàn:</label>
+            <select id="table-select">
+                <option value="1">Table 1</option>
+                <option value="2">Table 2</option>
+                <option value="3">Table 3</option>
+                <option value="4">Table 4</option>
+                <option value="5">Table 5</option>
+            </select>
 
-    <select id="table-select">
-        <option value="1">Bàn 1</option>
-        <option value="2">Bàn 2</option>
-        <option value="3">Bàn 3</option>
-        <option value="4">Bàn 4</option>
-        <option value="5">Bàn 5</option>
-    </select>
+            <button id="load-bill" type="submit">
+                View bill
+            </button>
+        </form>
 
-    <button id="load-bill">
-        Xem hóa đơn
-    </button>
+        <p id="connection-message">
+            Choose a table and click View bill.
+        </p>
 
-    <div id="bill-container">
-        Chưa chọn hóa đơn.
-    </div>
+        <p id="action-message" role="status"></p>
 
-    <script src="js/staff.js"></script>
+        <section
+            id="bill-container"
+            aria-label="Table bill"
+            aria-busy="false"
+        >
+            <p class="empty-message">No bill selected.</p>
+        </section>
+    </main>
 
+    <dialog
+        id="close-dialog"
+        aria-labelledby="close-dialog-title"
+        aria-describedby="close-dialog-message close-dialog-note"
+    >
+        <form method="dialog">
+            <h2 id="close-dialog-title">End table session?</h2>
+
+            <p id="close-dialog-message">
+                End the current session for
+                <strong id="close-table"></strong>?
+            </p>
+
+            <p class="dialog-total">
+                Bill total:
+                <strong id="close-total"></strong>
+            </p>
+
+            <p id="close-dialog-note">
+                Please confirm that all dishes have been completed
+                and payment has been received.
+            </p>
+
+            <div class="dialog-actions">
+                <button type="submit" value="cancel" autofocus>
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    value="confirm"
+                    class="primary-button"
+                >
+                    End session
+                </button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>

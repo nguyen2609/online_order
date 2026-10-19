@@ -1,34 +1,272 @@
+* {
+    box-sizing: border-box;
+}
 
 body {
+    margin: 0;
+    padding: 20px;
     font-family: Arial, sans-serif;
-    margin: 30px;
+    color: #111;
+    background: #f2f2f2;
+    line-height: 1.5;
 }
 
-select,
+.page-header,
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 16px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+button,
+select {
+    min-height: 48px;
+    padding: 10px 16px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: white;
+    color: #111;
+    font: inherit;
+}
+
 button {
-    padding: 8px 12px;
-    margin: 8px 4px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.bill-card {
-    margin-top: 24px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+button:hover:not(:disabled) {
+    background: #eee;
+}
+
+button:disabled,
+select:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+button:focus-visible,
+select:focus-visible {
+    outline: 3px solid #1769aa;
+    outline-offset: 3px;
+}
+
+.table-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.table-controls label {
+    font-weight: bold;
+}
+
+.table-controls select {
+    min-width: 150px;
+}
+
+#connection-message,
+.bill-note,
+.session-number,
+.unit-price {
+    color: #555;
+    font-size: 14px;
+}
+
+#action-message:empty {
+    display: none;
+}
+
+#action-message {
+    padding: 12px;
+    border-left: 4px solid #555;
+    background: white;
+}
+
+.bill-card,
+.empty-message {
     padding: 18px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    background: white;
+}
+
+.bill-header {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+.session-number {
+    margin: 4px 0 0;
+}
+
+.bill-note {
+    margin: 12px 0 0;
 }
 
 .order-row {
-    margin: 8px 0;
+    padding: 18px 0;
+    border-bottom: 1px solid #ccc;
 }
 
-.total {
-    margin-top: 18px;
+.order-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.item-row + .item-row {
+    margin-top: 16px;
+}
+
+.item-details {
+    min-width: 0;
+}
+
+.dish-line {
     font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.dish-quantity {
+    margin-right: 10px;
+}
+
+.unit-price {
+    display: block;
+    margin-top: 4px;
+}
+
+.item-total {
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+.order-total,
+.bill-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.order-total {
+    margin-top: 16px;
+}
+
+.bill-total {
+    padding: 20px 0;
+    font-size: 24px;
     font-weight: bold;
 }
-.pay-button {
-    margin-top: 20px;
-    padding: 10px 18px;
-    font-size: 16px;
-    cursor: pointer;
+
+.item-total,
+.order-total strong,
+.bill-total strong {
+    font-variant-numeric: tabular-nums;
+}
+
+.primary-button {
+    background: #333;
+    color: white;
+}
+
+.primary-button:hover:not(:disabled) {
+    background: #444;
+}
+
+.end-session-button {
+    width: 100%;
+    font-size: 18px;
+}
+
+#close-dialog {
+    width: calc(100% - 32px);
+    max-width: 440px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    padding: 24px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    background: white;
+    color: #111;
+    font: inherit;
+}
+
+#close-dialog::backdrop {
+    background: rgba(0, 0, 0, .45);
+}
+
+#close-dialog h2 {
+    margin-bottom: 12px;
+}
+
+#close-dialog-message,
+.dialog-total {
+    font-size: 18px;
+}
+
+#close-dialog-note {
+    margin-bottom: 24px;
+    color: #555;
+}
+
+.dialog-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dialog-actions button {
+    flex: 1;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .table-controls select {
+        flex: 1;
+    }
+
+    #load-bill {
+        width: 100%;
+    }
+
+    .bill-total {
+        font-size: 22px;
+        flex-wrap: wrap;
+    }
+
+    .item-row {
+        gap: 10px;
+    }
 }
